@@ -28,4 +28,21 @@ class PostDao {
 
         }
     }
+    fun getpostbyid(id : String):Task<DocumentSnapshot>{
+        return postCollecction.document(id).get()
+    }
+    fun updatelikes(id : String){
+val currentuser = CurrentAuth.currentUser!!.uid
+        GlobalScope.launch {
+            val post = getpostbyid(id).await().toObject(Post::class.java)
+            val liked=post!!.likedBy.contains(currentuser)
+            if(liked)
+            {
+                post.likedBy.remove(currentuser)
+            }else{
+                post.likedBy.add(currentuser)
+            }
+            postCollecction.document(id).set(post)
+        }
+    }
 }

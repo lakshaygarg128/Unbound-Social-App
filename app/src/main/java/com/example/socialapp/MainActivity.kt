@@ -12,7 +12,7 @@ import com.example.socialapp.model.Post
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
 
     private lateinit var postDao: PostDao
     lateinit var adapter: Post_Adapter
@@ -33,10 +33,14 @@ class MainActivity : AppCompatActivity() {
         val postcollection = postDao.postCollecction
         val query = postcollection.orderBy("createdon",Query.Direction.DESCENDING)
         val RecyclerViewOption = FirestoreRecyclerOptions.Builder<Post>().setQuery(query,Post::class.java).build()
-    adapter= Post_Adapter(RecyclerViewOption)
+    adapter= Post_Adapter(RecyclerViewOption ,this)
         var recyclerView : RecyclerView = findViewById(R.id.recyclerview)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onlikeclicked(id: String) {
+     postDao.updatelikes(id)
     }
 
     override fun onStart() {
