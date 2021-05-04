@@ -110,7 +110,7 @@ class Signin : AppCompatActivity() {
             val dao = Usedao()
             Toast.makeText(this,"done",Toast.LENGTH_LONG).show()
             dao.addUser(user)
-            Toast.makeText(this,"ndki",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"User Added",Toast.LENGTH_LONG).show()
             val mainactivityintent = Intent(this,MainActivity::class.java)
             startActivity(mainactivityintent)
             finish()
@@ -119,6 +119,7 @@ class Signin : AppCompatActivity() {
             progressBar.visibility = View.GONE
             val signinbutton : SignInButton = findViewById((R.id.signinbutton))
             signinbutton.visibility = View.VISIBLE
+            Toast.makeText(this,"user not found",Toast.LENGTH_LONG).show()
         }
     }
 
