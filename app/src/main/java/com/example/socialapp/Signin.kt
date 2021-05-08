@@ -69,7 +69,7 @@ class Signin : AppCompatActivity() {
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("Google sign in failed", e)
-                Toast.makeText(this,"Google sign in failed ${e.toString()}", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"Google sign in failed ${e.toString()}", Toast.LENGTH_LONG).show()
                 // ...
             }
         }
@@ -110,7 +110,7 @@ class Signin : AppCompatActivity() {
             val dao = Usedao()
             Toast.makeText(this,"done",Toast.LENGTH_LONG).show()
             dao.addUser(user)
-            Toast.makeText(this,"User Added",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"User Added",Toast.LENGTH_LONG).show()
             val mainactivityintent = Intent(this,MainActivity::class.java)
             startActivity(mainactivityintent)
             finish()
