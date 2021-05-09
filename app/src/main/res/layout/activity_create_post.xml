@@ -5,58 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePost">
+<!--    <EditText-->
+<!--        android:id="@+id/About_post"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="250dp"-->
+<!--        android:hint="About Post"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:gravity="top"-->
+<!--        android:layout_margin="12dp"-->
+<!--        android:padding="12dp"-->
+<!--        android:background="@drawable/edittext_shape"-->
+<!--        />-->
+<!--    <Button-->
+<!--        android:id="@+id/choose_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="CHOOSE MEDIA"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="25sp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/About_post"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/image"-->
+
+<!--        />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="190dp"-->
+<!--        android:src="@drawable/ic_baseline_perm_media_24"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/post"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/choose_button" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/post"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:layout_marginTop="224dp"-->
+<!--        android:text="POST"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/image"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        />-->
     <EditText
         android:id="@+id/About_post"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:hint="About Post"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:hint="What do you want to talk about?"
         android:gravity="top"
         android:layout_margin="12dp"
-        android:padding="12dp"
-        android:background="@drawable/edittext_shape"
-        />
-    <Button
-        android:id="@+id/choose_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CHOOSE MEDIA"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/About_post"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/image"
-
-        />
+        android:padding="12dp" />
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="12dp"
+        android:background="@color/white"
         android:src="@drawable/ic_baseline_perm_media_24"
-        app:layout_constraintBottom_toTopOf="@id/post"
-
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/choose_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose_button" />
+        app:layout_constraintTop_toTopOf="@id/About_post" />
 
     <Button
-        android:id="@+id/post"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:layout_marginTop="224dp"
-        android:text="POST"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:id="@+id/choose_button"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:layout_margin="12dp"
+        android:text="CHOOSE"
+        android:background="@color/white" />
+
+    <Button
+        android:layout_width="0dp"
+        android:id="@+id/post"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choose_button"
+        android:layout_margin="12dp"
+        android:text="POST"
+        android:background="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
