@@ -21,6 +21,7 @@ class Post_Adapter(options: FirestoreRecyclerOptions<Post> , val listner :IPostA
         val createdAt: TextView = itemView.findViewById(R.id.createdAt)
         val likeCount: TextView = itemView.findViewById(R.id.likeCount)
         val userImage: ImageView = itemView.findViewById(R.id.userImage)
+        val postImage :ImageView = itemView.findViewById(R.id.post_image)
         val likeButton: ImageView = itemView.findViewById(R.id.likeButton)
 
     }
@@ -37,6 +38,7 @@ class Post_Adapter(options: FirestoreRecyclerOptions<Post> , val listner :IPostA
        holder.postText.text=model.text
         holder.userText.text=model.createdBy.displayname
         Glide.with(holder.userImage.context).load(model.createdBy.imageurl).circleCrop().into(holder.userImage)
+        Glide.with(holder.postImage.context).load(model.image_url).into(holder.postImage)
         holder.likeCount.text=model.likedBy.size.toString()
         holder.createdAt.text=Utils.getTimeAgo(model.createdon)
         val auth = Firebase.auth

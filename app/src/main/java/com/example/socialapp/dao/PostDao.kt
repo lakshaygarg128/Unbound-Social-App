@@ -16,14 +16,15 @@ class PostDao {
     val db = FirebaseFirestore.getInstance()
     val postCollecction = db.collection("post")
     val CurrentAuth =Firebase.auth
-    fun addPost (text :String)
+    fun addPost (text :String,image_url :String)
     {
         val CurrentId = CurrentAuth.currentUser!!.uid
             val userdao = Usedao()
+
         GlobalScope.launch{
             var user =  userdao.getUserById(CurrentId).to(User::class.java).first.await().toObject(user::class.java)!!
             val current_time = System.currentTimeMillis()
-            val post = Post(text,user,current_time)
+            val post = Post(text,user,current_time,image_url)
             postCollecction.document().set(post)
 
         }
@@ -32,7 +33,7 @@ class PostDao {
         return postCollecction.document(id).get()
     }
     fun updatelikes(id : String){
-val currentuser = CurrentAuth.currentUser!!.uid
+        val currentuser = CurrentAuth.currentUser!!.uid
         GlobalScope.launch {
             val post = getpostbyid(id).await().toObject(Post::class.java)
             val liked=post!!.likedBy.contains(currentuser)

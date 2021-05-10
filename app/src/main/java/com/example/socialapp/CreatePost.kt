@@ -3,13 +3,13 @@ package com.example.socialapp
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.view.View
+import android.webkit.MimeTypeMap
+import android.widget.*
 import com.example.socialapp.dao.PostDao
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -17,8 +17,10 @@ import com.google.firebase.database.FirebaseDatabase
 
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 
 class CreatePost : AppCompatActivity() {
+    private var imageUrl: Uri? = null
     lateinit var filePath: Uri
     private var databaseReference: DatabaseReference? = null
     private var storageReference: StorageReference? = null
@@ -54,13 +56,42 @@ class CreatePost : AppCompatActivity() {
             choosepic()
         }
         postButton.setOnClickListener{
-          val input_about = About_post.text.toString().trim()
-            if(!input_about.isEmpty())
-            {
-                post.addPost(input_about)
-                finish()
+            val progressBar : ProgressBar = findViewById(R.id.progressBar)
+            progressBar.visibility = View.VISIBLE
+
+            val ref = storageReference!!.child(
+
+                    "upload/" + System.currentTimeMillis() + "." + getFileExt(filepath = filePath)
+            )
+           // PUT function
+            ref.putFile(filePath).addOnSuccessListener { taskSnapshot ->
+                val data = taskSnapshot.storage.downloadUrl
+
+                while (!data.isSuccessful);
+                imageUrl = data.result
+                val imageFilePath = imageUrl.toString()
+                val input = About_post.text.toString()
+                if (input.isNotEmpty()) {
+                    post.addPost(input, imageFilePath)
+                    finish()
+                }
+
+            }.addOnFailureListener{
+                Toast.makeText(this,"UPLOAD FAIL",Toast.LENGTH_SHORT).show()
             }
+            
+            
+            
+
         }
+    }
+
+    private fun getFileExt(filepath: Uri): String? {
+        val cr = contentResolver
+        val map = MimeTypeMap.getSingleton()
+
+        return map.getExtensionFromMimeType(cr.getType(filepath))
+
     }
 
     private fun choosepic() {
