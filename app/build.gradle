@@ -64,6 +64,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.2.2'
     implementation 'com.google.firebase:firebase-database:19.7.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    // AndroidX Capable version
+    implementation 'com.github.AppIntro:AppIntro:6.1.0'
+
+    // *** OR ***
+
+    // Latest version compatible with the old Support Library
+    implementation 'com.github.AppIntro:AppIntro:4.2.3'
+    //Lottie Animation
+    def lottieVersion = "3.7.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
