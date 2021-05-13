@@ -98,7 +98,9 @@ class Signin : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-            UpdateUI(auth.currentUser)
+
+        UpdateUI(auth.currentUser)
+
 
     }
 
