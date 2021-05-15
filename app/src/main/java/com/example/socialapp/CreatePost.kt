@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.*
+import com.airbnb.lottie.LottieAnimationView
 import com.example.socialapp.dao.PostDao
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -56,7 +57,7 @@ class CreatePost : AppCompatActivity() {
             choosepic()
         }
         postButton.setOnClickListener{
-            val progressBar : ProgressBar = findViewById(R.id.progressBar)
+            val progressBar : LottieAnimationView = findViewById(R.id.progressBar)
             progressBar.visibility = View.VISIBLE
 
             val ref = storageReference!!.child(

@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.airbnb.lottie.LottieAnimationView
 import com.example.socialapp.dao.Usedao
 import com.example.socialapp.model.user
 
@@ -89,10 +90,10 @@ class Signin : AppCompatActivity() {
                 }
             }
 
-            val progressBar: ProgressBar = findViewById(R.id.progressbar)
+            val progressBar: LottieAnimationView = findViewById(R.id.progressbar)
             progressBar.visibility = View.VISIBLE
             val signinbutton : SignInButton = findViewById((R.id.signinbutton))
-            signinbutton.visibility = View.GONE
+            signinbutton.visibility = View.INVISIBLE
     }
 
     override fun onStart() {
@@ -117,11 +118,11 @@ class Signin : AppCompatActivity() {
             startActivity(mainactivityintent)
             finish()
         }else{
-            val progressBar: ProgressBar = findViewById(R.id.progressbar)
-            progressBar.visibility = View.GONE
+            val progressBar: LottieAnimationView = findViewById(R.id.progressbar)
+            progressBar.visibility = View.INVISIBLE
             val signinbutton : SignInButton = findViewById((R.id.signinbutton))
             signinbutton.visibility = View.VISIBLE
-            Toast.makeText(this,"user not found",Toast.LENGTH_LONG).show()
+//            Toast.makeText(this,"user not found",Toast.LENGTH_LONG).show()
         }
     }
 
