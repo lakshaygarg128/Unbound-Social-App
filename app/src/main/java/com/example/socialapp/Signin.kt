@@ -2,6 +2,7 @@ package com.example.socialapp
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,7 @@ class Signin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.actionbar)))
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -89,11 +91,13 @@ class Signin : AppCompatActivity() {
                     UpdateUI(firebaseUser)
                 }
             }
-
+            val google_logo :LottieAnimationView = findViewById(R.id.logo_google)
             val progressBar: LottieAnimationView = findViewById(R.id.progressbar)
             progressBar.visibility = View.VISIBLE
             val signinbutton : SignInButton = findViewById((R.id.signinbutton))
             signinbutton.visibility = View.INVISIBLE
+        google_logo.visibility=View.INVISIBLE
+
     }
 
     override fun onStart() {
@@ -118,10 +122,12 @@ class Signin : AppCompatActivity() {
             startActivity(mainactivityintent)
             finish()
         }else{
+            val google_logo :LottieAnimationView = findViewById(R.id.logo_google)
             val progressBar: LottieAnimationView = findViewById(R.id.progressbar)
             progressBar.visibility = View.INVISIBLE
             val signinbutton : SignInButton = findViewById((R.id.signinbutton))
             signinbutton.visibility = View.VISIBLE
+            google_logo.visibility=View.VISIBLE
 //            Toast.makeText(this,"user not found",Toast.LENGTH_LONG).show()
         }
     }

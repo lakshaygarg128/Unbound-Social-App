@@ -10,6 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:hint="About Post"
+        android:backgroundTint="@color/actionbar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,6 +22,7 @@
     <Button
         android:id="@+id/choose_button"
         android:layout_width="match_parent"
+        android:backgroundTint="@color/actionbar"
         android:layout_height="wrap_content"
         android:text="CHOOSE MEDIA"
         android:textStyle="bold"
@@ -50,6 +52,7 @@
         android:layout_height="50dp"
         android:layout_margin="15dp"
         android:layout_marginTop="224dp"
+        android:backgroundTint="@color/actionbar"
         android:text="POST"
         android:textSize="20sp"
         android:textStyle="bold"

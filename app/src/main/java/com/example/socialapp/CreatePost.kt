@@ -2,6 +2,7 @@ package com.example.socialapp
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,8 @@ class CreatePost : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.actionbar)))
         setContentView(R.layout.activity_create_post)
         val postButton: Button =findViewById(R.id.post)
         val About_post : EditText = findViewById(R.id.About_post)

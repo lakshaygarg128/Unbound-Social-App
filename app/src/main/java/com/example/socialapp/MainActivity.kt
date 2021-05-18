@@ -1,6 +1,7 @@
 package com.example.socialapp
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
     lateinit var adapter: Post_Adapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.actionbar)))
         setContentView(R.layout.activity_main)
             val fab_button : View = findViewById(R.id.fab)
         fab_button.setOnClickListener{

@@ -22,7 +22,9 @@
 
         </activity>
         <activity android:name=".CreatePost"
-            android:theme="@style/Theme.MaterialComponents.Light"/>
+            android:theme="@style/Theme.MaterialComponents.Light"
+            >
+        </activity>
         <activity android:name=".Signin"
             android:theme="@style/Theme.MaterialComponents.Light"/>
         <activity android:name=".MainActivity"
