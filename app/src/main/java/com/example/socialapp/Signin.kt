@@ -48,7 +48,6 @@ class Signin : AppCompatActivity() {
         signinbutton.setOnClickListener {
             signIn()
         }
-
     }
 
     private fun signIn() {
