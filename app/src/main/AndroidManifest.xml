@@ -10,25 +10,27 @@
         android:icon="@mipmap/unbound_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/unbound_logo_round"
-        android:supportsRtl="true"
-      >
-        <activity android:name=".Intro_Tour"
+        android:supportsRtl="true">
+        <activity android:name=".chat.Chat_Main"
+            android:theme="@style/Theme.MaterialComponents.Light"/>
+        <activity
+            android:name=".Intro_Tour"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".CreatePost"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            >
-        </activity>
-        <activity android:name=".Signin"
+        <activity
+            android:name=".CreatePost"
             android:theme="@style/Theme.MaterialComponents.Light"/>
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light"/>
+        <activity
+            android:name=".Signin"
+            android:theme="@style/Theme.MaterialComponents.Light" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
         <meta-data
             android:name="preloaded_fonts"
