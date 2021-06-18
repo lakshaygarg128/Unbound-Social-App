@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.socialapp.adapters.Post_Adapter
 import com.example.socialapp.chat.Chat_Main
 import com.example.socialapp.dao.PostDao
 import com.example.socialapp.model.Post
@@ -20,10 +21,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
    lateinit var  nav : NavigationView
@@ -53,15 +52,7 @@ class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
         toogle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val header_view = nav.getHeaderView(0)
-        val profile_image : ImageView = header_view.findViewById(R.id.profileImage)
-        val profile_name : TextView = header_view.findViewById(R.id.profile_name)
-        val currentuser_prifileimage_url = Firebase.auth.currentUser!!.photoUrl
-        val currentuser_prifileName = Firebase.auth.currentUser!!.displayName
-        profile_name.setText(currentuser_prifileName)
-        Glide.with(profile_image.context).load(currentuser_prifileimage_url).circleCrop().into(profile_image)
-
-
+        setupProfileDrawer()
 
         nav.setNavigationItemSelectedListener {
             when(it.itemId){
@@ -75,6 +66,18 @@ class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
             }
             true
         }
+
+    }
+
+    private fun setupProfileDrawer() {
+        val header_view = nav.getHeaderView(0)
+        val profile_image : ImageView = header_view.findViewById(R.id.profileImage)
+        val profile_name : TextView = header_view.findViewById(R.id.profile_name)
+        val currentuser_prifileimage_url = Firebase.auth.currentUser!!.photoUrl
+        val currentuser_prifileName = Firebase.auth.currentUser!!.displayName
+        profile_name.setText(currentuser_prifileName)
+        Glide.with(profile_image.context).load(currentuser_prifileimage_url).circleCrop().into(profile_image)
+
 
     }
 
@@ -124,7 +127,7 @@ class MainActivity : AppCompatActivity(), Post_Adapter.IPostApdapter {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.chat_menu,menu)
+        menuInflater.inflate(R.menu.chat_menu_actionbar,menu)
         return super.onCreateOptionsMenu(menu)
     }
 }
