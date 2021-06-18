@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:focusable="true">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/Profile_chat_list"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/person_list"
+        app:shapeAppearanceOverlay="@style/AppIntroDefaultImage"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/Title"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:text="No name"
+                android:textSize="18sp"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginEnd="12dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/TimeTitle"
+                android:text="16:58"
+                android:textSize="14sp"
+                android:lines="1"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/SubTitle"
+                android:ellipsize="end"
+                android:text="New Message"
+                android:textSize="14sp"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginEnd="12dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/Count_chat_tv"
+                android:text="1"
+                android:textSize="14sp"
+                android:lines="1"
+                android:paddingTop="2dp"
+                android:paddingStart="8dp"
+                android:paddingBottom="2dp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/black"
+                android:background="@drawable/count_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
