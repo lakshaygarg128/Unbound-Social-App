@@ -15,7 +15,7 @@ android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
  <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+     android:id="@+id/recyclerview"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
      app:layout_constraintTop_toTopOf="parent"

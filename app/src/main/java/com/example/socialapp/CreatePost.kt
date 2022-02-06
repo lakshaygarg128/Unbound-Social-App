@@ -27,7 +27,7 @@ class CreatePost : AppCompatActivity() {
     private var databaseReference: DatabaseReference? = null
     private var storageReference: StorageReference? = null
 
-    private val REQUEST_CODE: Int =0
+
 
     private lateinit var post: PostDao
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

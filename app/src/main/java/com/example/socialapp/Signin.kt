@@ -101,11 +101,7 @@ class Signin : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
-
         UpdateUI(auth.currentUser)
-
-
     }
 
     private fun UpdateUI(firebaseUser: FirebaseUser?) {

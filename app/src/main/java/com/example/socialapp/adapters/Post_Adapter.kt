@@ -25,7 +25,6 @@ class Post_Adapter(options: FirestoreRecyclerOptions<Post> , val listner : IPost
         val userImage: ImageView = itemView.findViewById(R.id.userImage)
         val postImage :ImageView = itemView.findViewById(R.id.post_image)
         val likeButton: ImageView = itemView.findViewById(R.id.likeButton)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Post_viewholder {
@@ -37,7 +36,7 @@ class Post_Adapter(options: FirestoreRecyclerOptions<Post> , val listner : IPost
     }
 
     override fun onBindViewHolder(holder: Post_viewholder, position: Int, model: Post) {
-       holder.postText.text=model.text
+        holder.postText.text=model.text
         holder.userText.text=model.createdBy.displayname
         Glide.with(holder.userImage.context).load(model.createdBy.imageurl).circleCrop().into(holder.userImage)
         Glide.with(holder.postImage.context).load(model.image_url).into(holder.postImage)
